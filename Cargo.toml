@@ -1,0 +1,10 @@
+[package]
+name = "golinks-rs"
+version = "0.1.0"
+authors = ["dinoocch <dino.occhialini@gmail.com>"]
+
+[dependencies]
+hyper = "0.11.2"
+futures = "0.1.14"
+lmdb = "0.7.1"
+lazy_static = "0.2"
