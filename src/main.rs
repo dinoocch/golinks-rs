@@ -9,6 +9,7 @@ extern crate lazy_static;
 extern crate log;
 extern crate pretty_env_logger;
 
+use std::env;
 use std::path::Path;
 use hyper::server::{Http, Request, Response, Service};
 use hyper::{Method, StatusCode, Chunk};
@@ -18,8 +19,9 @@ use lmdb::{Environment, WriteFlags, Transaction};
 
 lazy_static! {
     static ref DATABASE: Environment = {
+        let args: Vec<String> = env::args().collect();
         info!("Initializing Database Environment");
-        let dir_path = Path::new("/home/dino/go_linkdb");
+        let dir_path = Path::new(&args[1]);
         let db = Environment::new().open(dir_path).unwrap();
         info!("[Finished] Initializing Database Environment");
         db

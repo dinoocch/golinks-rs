@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ -r ./conf ] && . ./conf
+: "${GO_LINK_USER:=golinks}"
+: "${GO_LINK_GROUP:=golinks}"
+: "${GO_LINK_DATA:=/var/lib/golinks}"
+
+if [ ! -d "${GO_LINK_DATA}" ]; then
+	mkdir "${GO_LINK_DATA}"
+	chown $GO_LINK_USER:$GO_LINK_GROUP "${GO_LINK_DATA}"
+fi
+
+exec chpst -u ${GO_LINK_USER}:${GO_LINK_GROUP} /usr/local/bin/golinks-rs "${GO_LINK_DATA}"

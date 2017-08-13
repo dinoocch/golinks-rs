@@ -2,21 +2,13 @@
 
 Simple service to manage url shortcuts.
 
-Primarily intended for personal use on a LAN,
-but *could* be external facing...
-
-Original concept credit to google.  There's lots of other adaptations out there.
-
-The concept is far too easy to get used to...plus I like these better than
-bookmarks.
-
 ## Disclaimer
 
-This is primarily intended to be a quick introduction to the
-rust programming language and an easy Sunday project.
+This is primarily intended to be a quick introduction to rust rather than a
+production ready application. It is unlikely to be developed further...
 
 Therefore there are certainly instances of things that
-could have been written better/more concisely.
+could have been written better/more concisely. (namely with try! + functions)
 
 LMDB is used on a whim.
 
@@ -40,26 +32,13 @@ Use `{}` to accept arguments:
 As many arguments are allowed.  Only {} will be replaced.
 Arguments that are not specified are left as {}...
 
-Future may make arguments optional ()
-
 ## Setup
 
-put it behind nginx :)
-
-Add to your dns server within a search path.
-
-Profit
+1. put it behind nginx :)
+2. Add to your dns server within a search path / to `/etc/hosts`
 
 ## Implementation
 
 hyper for HTTP
 
-lmdb for storage ^.^
-
-## What is not there (yet?)
-
-* Authentication (PUT/DELETE)
-* Web interface
-* High Availability/Scalability
-
-These features will likely never exist.
+lmdb for storage
