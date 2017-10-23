@@ -199,7 +199,7 @@ impl Service for GoLinkServer {
 
 fn main() {
     pretty_env_logger::init().unwrap();
-    let addr = "0.0.0.0:3000".parse().unwrap();
+    let addr = "0.0.0.0:8976".parse().unwrap();
     let server = Http::new().bind(&addr, move || Ok(GoLinkServer)).unwrap();
     server.run().unwrap();
 }
